@@ -6,3 +6,10 @@ header {
     margin-bottom: 100px;
     text-align: center;
 }
+.time-space p {
+    height: 100%;
+    width: 100%;
+}
+.time-space {
+    padding:0;
+}
