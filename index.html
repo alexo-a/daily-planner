@@ -6,19 +6,23 @@
     <title>Daily Planner</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Work Day Scheduler</h1>
-        <h4>A simple calendar app to get you through your day. Let's get this 🍞!</h4>
-        <!--Post the date here-->
+
+    <header class="jumbotron">
+        <h1 class="display-3">Work Day Scheduler</h1>
+        <p class="lead">A simple calendar app for scheduling your work day</p>
+        <p id="currentDay" class="lead"></p>
     </header>
+
+
     <main class="row m-2">
         <section class="col-2 rowel">
-            <div  class="border-top border-dark text-right">
-                5AM
-            </div>
+
             <div  class="border-top border-dark text-right">
                 6AM
             </div>
@@ -40,49 +44,68 @@
             <div  class="border-top border-dark text-right">
                 12PM
             </div>
-            <div  class="border-top border-dark text-right">
+            <div class="border-top border-dark text-right">
                 1PM
             </div>
-            <div  class="border-top border-dark text-right">
+            <div class="border-top border-dark text-right">
                 2PM
+            </div>
+            <div class="border-top border-dark text-right">
+                3PM
+            </div>
+            <div class="border-top border-dark text-right">
+                4PM
+            </div>
+            <div class="border-top border-dark text-right">
+                5PM
+            </div>
+            <div class="border-top border-dark text-right">
+                6PM
             </div>
         </section>
-        <section class="col-8 px-2 rowel">
-            <div  class="border-top border-dark ">
-                5AM
+        <section id="schedule-area" class="col-8 px-2 rowel">
+            <div  class="border-top border-dark time-space">
+                <p>6AM</p>
             </div>
-            <div  class="border-top border-dark ">
-                6AM
+            <div  class="border-top border-dark time-space">
+                <p>7AM</p>
             </div>
-            <div  class="border-top border-dark ">
-                7AM
+            <div  class="border-top border-dark time-space">
+                <p>8AM</p>
             </div>
-            <div  class="border-top border-dark ">
-                8AM
+            <div  class="border-top border-dark time-space">
+                <p>9AM</p>
             </div>
-            <div  class="border-top border-dark ">
-                9AM
+            <div  class="border-top border-dark time-space">
+                <p>10AM</p>
             </div>
-            <div  class="border-top border-dark ">
-                10AM
+            <div  class="border-top border-dark time-space">
+                <p>11AM</p>
             </div>
-            <div  class="border-top border-dark ">
-                11AM
+            <div  class="border-top border-dark time-space">
+                <p>12PM</p>
             </div>
-            <div  class="border-top border-dark ">
-                12PM
+            <div  class="border-top border-dark time-space">
+                <p>1PM</p>
             </div>
-            <div  class="border-top border-dark ">
-                1PM
+            <div class="border-top border-dark time-space">
+                <p>2PM</p>
             </div>
-            <div  class="border-top border-dark ">
-                2PM
+            <div class="border-top border-dark time-space">
+                <p>3PM</p>
+            </div>
+            <div class="border-top border-dark time-space">
+                <p>4PM</p>
+            </div>
+            <div class="border-top border-dark time-space">
+                <p>5PM</p>
+            </div>
+            <div class="border-top border-dark time-space">
+                <p>6PM</p>
             </div>
         </section>
         <section class="col-2 rowel">
-            <div  class="border-top border-dark ">
-                5AM
-            </div>
+
             <div  class="border-top border-dark ">
                 6AM
             </div>
@@ -104,11 +127,23 @@
             <div  class="border-top border-dark ">
                 12PM
             </div>
-            <div  class="border-top border-dark ">
+            <div class="border-top border-dark ">
                 1PM
             </div>
-            <div  class="border-top border-dark ">
+            <div class="border-top border-dark ">
                 2PM
+            </div>
+            <div class="border-top border-dark ">
+                3PM
+            </div>
+            <div class="border-top border-dark ">
+                4PM
+            </div>
+            <div class="border-top border-dark ">
+                5PM
+            </div>
+            <div class="border-top border-dark ">
+                6PM
             </div>
         </section>
     </main>
@@ -119,6 +154,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
