@@ -82,6 +82,7 @@ var updateDate = function(){
             }
         }
     }
+    console.log("Updated at " + now.format("HH:mm:ss"));
 }
 
 jQuery(".time-space").on("click", function () {
@@ -126,3 +127,4 @@ jQuery(".time-space").on("keyup", "textarea",function (event) {
     }
 });
 updateDate();
+setInterval(updateDate,60000);
