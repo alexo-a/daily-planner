@@ -30,7 +30,9 @@ var clearLSTaskItems = function() {
 var updateTaskText = function(){
     for (var i = 0; i < 13; i++) {
         with (jQuery("#schedule-area div:eq(" + i.toString() + ")")){
-            children().text(localStorage.getItem(attr("id") + "Task"));
+            if (!children().is("textarea")){
+                children().text(localStorage.getItem(attr("id") + "Task"));
+            }
         }
     }
 }
@@ -61,15 +63,15 @@ var updateDate = function(){
             with (jQuery("#schedule-area div:eq(" + i.toString() + ")")){
                 if (i < hourIndex){//past    
                     removeClass();
-                    addClass("p-2 border-top border-light bg-dark text-white time-space font-weight-bold text-wrap text-break overflow-auto");
+                    addClass("border-top border-light bg-dark text-white time-space font-weight-bold text-wrap text-break overflow-auto");
                 }
                 else if (i === hourIndex ) {//present
                     removeClass();
-                    addClass("p-2 border-top border-light bg-secondary text-white time-space font-weight-bold overflow-auto");
+                    addClass("border-top border-light bg-secondary text-white time-space font-weight-bold overflow-auto");
                 }
                 else {//future
                     removeClass();
-                    addClass("p-2 border-top border-dark bg-white text-black time-space font-weight-bold overflow-auto");
+                    addClass("border-top border-dark bg-white text-black time-space font-weight-bold overflow-auto");
                 }
             }
         }
@@ -78,7 +80,7 @@ var updateDate = function(){
         for (var i = 0; i < 13; i++) {
             with (jQuery("#schedule-area div:eq(" + i.toString() + ")")) {
                 removeClass();
-                addClass("p-2 border-top border-dark bg-white text-black time-space font-weight-bold overflow-auto");
+                addClass("border-top border-dark bg-white text-black time-space font-weight-bold overflow-auto");
             }
         }
     }
@@ -87,6 +89,7 @@ var updateDate = function(){
 
 jQuery(".time-space").on("click","p", function () {
     //brings up a textarea box to fill in the desired task note
+  
     var text = jQuery(this)
         .text()
         .trim();
@@ -97,6 +100,7 @@ jQuery(".time-space").on("click","p", function () {
     textInput.trigger("focus");
     //adds a helpful note
     textInput.after("<p id='usage-note'>When complete, click outside the box or press ESC </p>")
+
 });
 
 jQuery(".time-space").on("blur", "textarea", function () {
@@ -108,7 +112,7 @@ jQuery(".time-space").on("blur", "textarea", function () {
         .trim();
     // recreate p element
     var taskP = jQuery("<p>")
-        .addClass("m-0 p-2 font-weight-bold overflow-auto")
+        .addClass("m-0 p-2 h-100 font-weight-bold overflow-auto")
         .text(text);
 
     //figure out what time slot the task is in and set to localstorage
