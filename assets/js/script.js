@@ -85,15 +85,15 @@ var updateDate = function(){
     console.log("Updated at " + now.format("HH:mm:ss"));
 }
 
-jQuery(".time-space").on("click", function () {
+jQuery(".time-space").on("click","p", function () {
     //brings up a textarea box to fill in the desired task note
-    var text = jQuery(this).children()
+    var text = jQuery(this)
         .text()
         .trim();
     var textInput = jQuery("<textarea>")
         .addClass("form-control")
         .val(text);
-    jQuery(this).children().replaceWith(textInput);
+    jQuery(this).replaceWith(textInput);
     textInput.trigger("focus");
     //adds a helpful note
     textInput.after("<p id='usage-note'>When complete, click outside the box or press ESC </p>")
@@ -122,7 +122,7 @@ jQuery(".time-space").on("blur", "textarea", function () {
 jQuery(".time-space").on("keyup", "textarea",function (event) {
     //allows user to force blur on pressing ESC key, for faster auto-saving
     if (event.keyCode === 27) {
-        //jQuery(".time-space textarea").blur();
+        //error? still works.
         jQuery(this).blur();
     }
 });
